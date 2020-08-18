@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# compare time-domain and frequency-domain cc (SAC's correlate)
+# compare time-domain and frequency-domain correlation codes
 #
 
 # prepare SAC data

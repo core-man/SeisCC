@@ -7,12 +7,12 @@
     - [cc_time](src/cc_time.c)
 
 - frequncy domain correlation
-    - [cc_freq](src/cc_freq.c): use [FFTW](http://www.fftw.org/) to do cross-correlation.
-    - [correlatec](src/correlatec.c): [SAC's libsac](https://seisman.github.io/SAC_Docs_zh/libs/libsac/#crscor): call SAC's `crscor` to do cross-correlation.
+    - [cc_freq](src/cc_freq.c): do cross-correlation using [FFTW](http://www.fftw.org/).
+    - [correlatec](src/correlatec.c): call SAC's `crscor` in SAC's [libsac](https://seisman.github.io/SAC_Docs_zh/libs/libsac/#crscor) to do cross-correlation.
     - [sac_wfcc](sac_wfcc/): this is [Lupei Zhu's code](http://geophysics.eas.gatech.edu/people/zpeng/Teaching/SAC_Tutorial/#part3_1)
     - PCC2: this is [Martin Schimmel's code](http://diapiro.ictja.csic.es/gt/mschi/SCIENCE/pcc2_method.py)
     - ObsPy: [corss_correlation](https://docs.obspy.org/packages/autogen/obspy.signal.cross_correlation.html#module-obspy.signal.cross_correlation)
-    - [SAC's correlate](examples/SAC-correlate.sh)
+    - SAC: [correlate](examples/SAC-correlate.sh)
 
 
 ## notes

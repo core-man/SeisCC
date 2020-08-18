@@ -8,7 +8,7 @@
 #      dT = dt + (b(f2) - b(f1))
 #
 # run the bash script to get arrival time
-#  ./correlatation.sh | awk '{print $2}'
+#  ./SAC-correlate.sh | awk '{print $2}'
 #
 
 # auto-correlation

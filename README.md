@@ -71,8 +71,7 @@ $ SAC
 $ r seis.sac
 $ rmean; rtrend; taper;
 ```
-Some codes (e.g., `cc-time`) may just use the RAW data, while some codes (e.g., `cc_freq` and `correlatec`) may do some processing in the running, e.g. `taper`. Therefore, we have to be very careful to explain the difference between different codes if the data preprocessing is a little different.
+Some codes (e.g., `cc-time`) may just use the RAW data, while some codes (e.g., `cc_freq` and `correlatec`) may do some processing in the running, e.g. `taper`. Therefore, we have to be very careful to explain the difference between different codes if the data preprocessing is a little different. Maybe we should add those pre-processing in the code, so that we can choose whether to use it.
 
 Be careful about reference time between different codes!!! Usually, we use the tmark (-5 -> b; -4 -> e; -3 -> 0; -2 -> a; 0-9 -> T0-9) as the reference time. But some code may add additional shift for some purpose, e.g., `sac_wfcc` adds tmark to the time shift.
-
 

@@ -1,18 +1,62 @@
+# [Cross-correlation](https://en.wikipedia.org/wiki/Cross-correlation)
 
-# [Correlation](https://en.wikipedia.org/wiki/Correlation_and_dependence)
-
-## methods
+## cross-correlation methods
 
 - time domain correlation
-    - [cc_time](src/cc_time.c)
+    - [cc_time](src/cc_time.c): only calculate cross-correlation coefficient at the specific time window
 
 - frequncy domain correlation
-    - [cc_freq](src/cc_freq.c): do cross-correlation using [FFTW](http://www.fftw.org/).
-    - [correlatec](src/correlatec.c): call SAC's `crscor` in SAC's [libsac](https://seisman.github.io/SAC_Docs_zh/libs/libsac/#crscor) to do cross-correlation.
+    - [cc_freq](src/cc_freq.c): do cross-correlation using [FFTW](http://www.fftw.org/)
+    - [correlatec](src/correlatec.c): call SAC's `crscor` in SAC's [libsac](http://ds.iris.edu/files/sac-manual/manual/saclib.html) ([Chinese notes](https://seisman.github.io/SAC_Docs_zh/libs/libsac/#crscor)) to do cross-correlation
     - [sac_wfcc](sac_wfcc/): this is [Lupei Zhu's code](http://geophysics.eas.gatech.edu/people/zpeng/Teaching/SAC_Tutorial/#part3_1)
     - PCC2: this is [Martin Schimmel's code](http://diapiro.ictja.csic.es/gt/mschi/SCIENCE/pcc2_method.py)
     - ObsPy: [corss_correlation](https://docs.obspy.org/packages/autogen/obspy.signal.cross_correlation.html#module-obspy.signal.cross_correlation)
     - SAC: [correlate](examples/SAC-correlate.sh)
+
+
+### `cc_time`
+
+```
+Do correlation in time domain.
+
+Usage:
+  cc_time [-Ttmark/ts/te] [-h] sacifle1 sacfile2
+
+Options:
+  -T: tmark/begin time (sec)/time window (sec)
+  -h: show usage
+```
+
+### `cc_freq`
+
+```
+Do correlation in frequency domain.
+
+Usage:
+  cc_freq  -Ttmark/ts/te -Occf -Wtaper -Aautocorr
+
+Options:
+  -T: tmark/begin time (sec)/time window (sec)
+  -O: cross-correlation function file
+  -W: taper (0: NO; 1: hanning; 2: cos)
+  -A: output auto-correlation
+  -h: show usage
+```
+
+
+``` `correlatec`
+Do correlation in frequency domain calling crscor.
+
+Usage:
+  correlatec -Ttmark/ts/te -Occf -Wtaper -Aautocorr
+
+Options:
+  -T: tmark/begin time (sec)/time window (sec)
+  -O: cross-correlation function file
+  -W: taper (0: NO; 1: hanning; 2: cos)
+  -A: output auto-correlation
+  -h: show usage
+```
 
 
 ## notes

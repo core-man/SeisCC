@@ -33,7 +33,8 @@ Options:
 Do correlation in frequency domain.
 
 Usage:
-  cc_freq -Ttmark/ts/te -Occf -Wtaper -Aautocorr [-h] sacfile1 sacfile2
+  cc_freq -Ttmark/ts/te -Occf -Wtaper -Aautocorr
+          [-h] sacfile1 sacfile2
 
 Options:
   -T: tmark/begin time (sec)/time window (sec)
@@ -49,7 +50,8 @@ Options:
 Do correlation in frequency domain calling crscor.
 
 Usage:
-  correlatec -Ttmark/ts/te -Occf -Wtaper -Aautocorr [-h] sacfile1 sacfile2
+  correlatec -Ttmark/ts/te -Occf -Wtaper -Aautocorr
+             [-h] sacfile1 sacfile2
 
 Options:
   -T: tmark/begin time (sec)/time window (sec)

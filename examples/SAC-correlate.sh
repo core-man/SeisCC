@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # calculate cross-correlation using correlate in SAC:
+#   http://ds.iris.edu/files/sac-manual/commands/correlate.html
 #   https://seisman.github.io/SAC_Docs_zh/commands/correlate/
 #
 # NOTES:

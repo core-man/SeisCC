@@ -21,7 +21,7 @@ void usage() {
     fprintf(stderr, "Do correlation in time domain.                     \n");
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Usage:                                             \n");
-    fprintf(stderr, "  cc_time [-Ttmark/ts/te]                          \n");
+    fprintf(stderr, "  cc_time [-Ttmark/ts/te] [-h] sacfile1 sacfile2   \n");
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Options:                                           \n");
     fprintf(stderr, "  -T: tmark/begin time (sec)/time window (sec)     \n");

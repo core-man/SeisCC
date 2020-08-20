@@ -280,6 +280,7 @@ void usage()
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Usage:                                             \n");
     fprintf(stderr, "  cc_freq  -Ttmark/ts/te -Occf -Wtaper -Aautocorr  \n");
+    fprintf(stderr, "           [-h] sacfile1 sacfile2                  \n");
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Options:                                           \n");
     fprintf(stderr, "  -T: tmark/begin time (sec)/time window (sec)     \n");

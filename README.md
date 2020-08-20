@@ -44,7 +44,8 @@ Options:
 ```
 
 
-``` `correlatec`
+### `correlatec`
+```
 Do correlation in frequency domain calling crscor.
 
 Usage:

@@ -16,7 +16,7 @@
 #include "complex.h"
 #include "fftw3.h"
 #include "sacio.h"
-#include "para.h"
+#include "const.h"
 
 
 typedef struct _ccvalue{

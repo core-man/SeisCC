@@ -15,7 +15,7 @@
 #include <math.h>
 #include "sacio.h"
 #include "sac.h"
-#include "para.h"
+#include "const.h"
 
 void usage();
 

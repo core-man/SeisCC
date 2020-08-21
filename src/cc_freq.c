@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     int c,error;
     int tmark;
     float t0, t1;
-    int taper=0, autoc=1;
+    int taper=0, cczero=1;
     char outfile[MAX_FNAME];
 
     float *data1, *data2;
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
                 if (sscanf(optarg, "%s", outfile) != 1) error++;
                 break;
             case 'A':
-                if (sscanf(optarg, "%d", &autoc) != 1) error++;
+                if (sscanf(optarg, "%d", &cczero) != 1) error++;
                 break;
             case 'h':
                 usage();
@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
     ccv = cc_freq(hd1.npts, hd2.npts, data1, data2, cc, taper);
 
     /* output cross-correlation or auto-correlation coefficient and time shift */
-    if (autoc != 0) {
+    if (cczero != 0) {
         fprintf(stdout, "%s %s %f %f\n", argv[optind], argv[optind+1],
                 ccv.ccmax*ccv.scale, ((hd2.b - hd1.b) - ccv.imax*hd1.delta));
     } else {
@@ -279,7 +279,7 @@ void usage()
     fprintf(stderr, "Do correlation in frequency domain.                \n");
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Usage:                                             \n");
-    fprintf(stderr, "  cc_freq  -Ttmark/ts/te -Occf -Wtaper -Aautocorr  \n");
+    fprintf(stderr, "  cc_freq  -Ttmark/ts/te -Occf -Wtaper -Acczero    \n");
     fprintf(stderr, "           [-h] sacfile1 sacfile2                  \n");
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Options:                                           \n");

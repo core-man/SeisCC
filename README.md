@@ -33,14 +33,14 @@ Options:
 Do correlation in frequency domain.
 
 Usage:
-  cc_freq -Ttmark/ts/te -Occf -Wtaper -Aautocorr
+  cc_freq -Ttmark/ts/te -Occf -Wtaper -Acczero
           [-h] sacfile1 sacfile2
 
 Options:
   -T: tmark/begin time (sec)/time window (sec)
   -O: cross-correlation function file
   -W: taper (0: NO; 1: hanning; 2: cos)
-  -A: output auto-correlation
+  -A: output cross-correlation at zero lag time
   -h: show usage
 ```
 
@@ -50,14 +50,14 @@ Options:
 Do correlation in frequency domain calling crscor.
 
 Usage:
-  correlatec -Ttmark/ts/te -Occf -Wtaper -Aautocorr
+  correlatec -Ttmark/ts/te -Occf -Wtaper -Acczero
              [-h] sacfile1 sacfile2
 
 Options:
   -T: tmark/begin time (sec)/time window (sec)
   -O: cross-correlation function file
   -W: taper (0: NO; 1: hanning; 2: cos)
-  -A: output auto-correlation
+  -A: output cross-correlation at zero lag time
   -h: show usage
 ```
 

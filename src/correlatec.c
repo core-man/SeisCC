@@ -24,7 +24,7 @@ void usage()
     fprintf(stderr, "Do correlation in frequency domain calling crscor  \n");
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Usage:                                             \n");
-    fprintf(stderr, "  correlatec -Ttmark/ts/te -Occf -Wtaper -Aautocorr\n");
+    fprintf(stderr, "  correlatec -Ttmark/ts/te -Occf -Wtaper -Acczero  \n");
     fprintf(stderr, "             [-h] sacfile1 sacfile2                \n");
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Options:                                           \n");
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     int c,err;
     int tmark;
     float t0, t1;
-    int taper=0, autoc=1;
+    int taper=0, cczero=1;
     char outfile[MAX_FNAME];
 
     err = 0;
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
                 if (sscanf(optarg, "%s", outfile) != 1) err++;
                 break;
             case 'A':
-                if (sscanf(optarg, "%d", &autoc) != 1) err++;
+                if (sscanf(optarg, "%d", &cczero) != 1) err++;
                 break;
             case 'h':
                 usage();
@@ -249,7 +249,7 @@ int main(int argc, char *argv[])
     */
 
     /* output cross-correlation or auto-correlation coefficient and time shift */
-    if (autoc != 0) {
+    if (cczero != 0) {
         fprintf(stdout, "%s %s %f %f\n", argv[optind], argv[optind+1], max_value, (hd2.b-hd1.b)+max_time);
     } else {
         fprintf(stdout, "%s %s %f\n", argv[optind], argv[optind+1], out[nlen-1]);

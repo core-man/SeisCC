@@ -21,11 +21,14 @@ void usage() {
     fprintf(stderr, "Do correlation in time domain.                     \n");
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Usage:                                             \n");
-    fprintf(stderr, "  cc_time [-Ttmark/ts/te] [-h] sacfile1 sacfile2   \n");
+    fprintf(stderr, "  cc_time -Ttmark/ts/te [-h] sacfile1 sacfile2   \n");
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Options:                                           \n");
-    fprintf(stderr, "  -T: tmark/begin time (sec)/time window (sec)     \n");
+    fprintf(stderr, "  -T: tmark/begin time (sec)/end timew (sec)       \n");
     fprintf(stderr, "  -h: show usage                                   \n");
+    fprintf(stderr, "                                                   \n");
+    fprintf(stderr, "Examples:                                          \n");
+    fprintf(stderr, "  cc_time -T1/-3/4 seis1.sac seis2.sac             \n");
 }
 
 int main(int argc, char *argv[])

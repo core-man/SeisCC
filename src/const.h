@@ -1,14 +1,14 @@
 /*******************************************************************************
-    Name:     para.h
+    Name:     const.h
 
-    Purpose:    some common variables
+    Purpose:    some constant variables
 
     Revisions:
         08/17/2020  Jiayuan Yao  Initial coding
 *******************************************************************************/
 
-#ifndef PARA_H
-#define PARA_H
+#ifndef CONST_H
+#define CONST_H
 
 #define ERROR_MAX  256      /* maxmum error length        */
 #define MAX_FNAME  256      /* maxmum file name length    */
@@ -18,4 +18,4 @@
 int taper_cos(double *tpr, int n, double per);
 int taper_hanning(double *tpr, int n, double per);
 
-#endif /* para.h */
+#endif /* const.h */

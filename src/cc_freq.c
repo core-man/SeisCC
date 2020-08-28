@@ -100,7 +100,9 @@ int main(int argc, char *argv[])
     /* do cross-correlate in frequency domain  */
     ccv = cc_freq(hd1.npts, hd2.npts, data1, data2, cc, taper);
 
-    /* output cross-correlation or auto-correlation coefficient and time shift */
+    /* output
+     *     maximum cross-correlation coefficient and time shift, or
+     *     corr-correlation coefficient at zero time lag */
     if (cczero != 0) {
         fprintf(stdout, "%s %s %f %f\n", argv[optind], argv[optind+1],
                 ccv.ccmax*ccv.scale, ((hd2.b - hd1.b) - ccv.imax*hd1.delta));
@@ -279,14 +281,20 @@ void usage()
     fprintf(stderr, "Do correlation in frequency domain.                \n");
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Usage:                                             \n");
-    fprintf(stderr, "  cc_freq  -Ttmark/ts/te -Occf -Wtaper -Acczero    \n");
+    fprintf(stderr, "  cc_freq  -Ttmark/ts/te [-Occf] [-Wtaper] [-Acczero]    \n");
     fprintf(stderr, "           [-h] sacfile1 sacfile2                  \n");
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Options:                                           \n");
-    fprintf(stderr, "  -T: tmark/begin time (sec)/time window (sec)     \n");
+    fprintf(stderr, "  -T: tmark/begin time (sec)/end time (sec)        \n");
     fprintf(stderr, "  -O: cross-correlation function file              \n");
-    fprintf(stderr, "  -W: taper (0: NO; 1: hanning; 2: cos)            \n");
-    fprintf(stderr, "  -A: output auto-correlation                      \n");
+    fprintf(stderr, "  -W: taper (0: NO (default); 1: hanning; 2: cos)            \n");
+    fprintf(stderr, "  -A: only output cross-correlation at zero lag time (0: YES; 1: NO (default)) \n");
     fprintf(stderr, "  -h: show usage                                   \n");
+    fprintf(stderr, "                                                   \n");
+    fprintf(stderr, "Examples:                                          \n");
+    fprintf(stderr, "  cc_freq -T1/-3/4 seis1.sac seis2.sac               \n");
+    fprintf(stderr, "  cc_freq -T1/-3/4 -A0 seis1.sac seis2.sac           \n");
+    fprintf(stderr, "  cc_freq -T1/-3/4 -W1 seis1.sac seis2.sac           \n");
+    fprintf(stderr, "  cc_freq -T1/-3/4 -Occf12.sac seis1.sac seis2.sac   \n");
 }
 

@@ -24,15 +24,21 @@ void usage()
     fprintf(stderr, "Do correlation in frequency domain calling crscor  \n");
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Usage:                                             \n");
-    fprintf(stderr, "  correlatec -Ttmark/ts/te -Occf -Wtaper -Acczero  \n");
+    fprintf(stderr, "  correlatec -Ttmark/ts/te [-Occf] [-Wtaper] [-Acczero]  \n");
     fprintf(stderr, "             [-h] sacfile1 sacfile2                \n");
     fprintf(stderr, "                                                   \n");
     fprintf(stderr, "Options:                                           \n");
-    fprintf(stderr, "  -T: tmark/begin time (sec)/time window (sec)     \n");
+    fprintf(stderr, "  -T: tmark/begin time (sec)/end time (sec)        \n");
     fprintf(stderr, "  -O: cross-correlation function file              \n");
-    fprintf(stderr, "  -W: taper (0: NO; 1: hanning; 2: cos)            \n");
-    fprintf(stderr, "  -A: output auto-correlation                      \n");
+    fprintf(stderr, "  -W: taper (0: NO (default); 1: hanning; 2: cos)            \n");
+    fprintf(stderr, "  -A: only output cross-correlation at zero lag time (0: YES; 1: NO (default)) \n");
     fprintf(stderr, "  -h: show usage                                   \n");
+    fprintf(stderr, "                                                   \n");
+    fprintf(stderr, "Examples:                                          \n");
+    fprintf(stderr, "  correlatec -T1/-3/4 seis1.sac seis2.sac            \n");
+    fprintf(stderr, "  correlatec -T1/-3/4 -A0 seis1.sac seis2.sac        \n");
+    fprintf(stderr, "  correlatec -T1/-3/4 -W1 seis1.sac seis2.sac        \n");
+    fprintf(stderr, "  correlatec -T1/-3/4 -Occf12.sac seis1.sac seis2.sac\n");
 }
 
 

@@ -23,8 +23,11 @@ Usage:
   cc_time -Ttmark/ts/te [-h] sacifle1 sacfile2
 
 Options:
-  -T: tmark/begin time (sec)/time window (sec)
+  -T: tmark/begin time (sec)/end time (sec)
   -h: show usage
+
+Examples:
+  cc_time -T1/-3/4 seis1.sac seis2.sac
 ```
 
 ### `cc_freq`
@@ -33,15 +36,21 @@ Options:
 Do correlation in frequency domain.
 
 Usage:
-  cc_freq -Ttmark/ts/te -Occf -Wtaper -Acczero
+  cc_freq -Ttmark/ts/te [-Occf] [-Wtaper] [-Acczero]
           [-h] sacfile1 sacfile2
 
 Options:
-  -T: tmark/begin time (sec)/time window (sec)
+  -T: tmark/begin time (sec)/end time (sec)
   -O: cross-correlation function file
-  -W: taper (0: NO; 1: hanning; 2: cos)
-  -A: output cross-correlation at zero lag time
+  -W: taper (0: NO (default); 1: hanning; 2: cos)
+  -A: only output cross-correlation at zero lag time (0: YES; 1: NO (default))
   -h: show usage
+
+Examples:
+  cc_freq -T1/-3/4 seis1.sac seis2.sac
+  cc_freq -T1/-3/4 -A0 seis1.sac seis2.sac
+  cc_freq -T1/-3/4 -W1 seis1.sac seis2.sac
+  cc_freq -T1/-3/4 -Occf12.sac seis1.sac seis2.sac
 ```
 
 
@@ -50,15 +59,21 @@ Options:
 Do correlation in frequency domain calling crscor.
 
 Usage:
-  correlatec -Ttmark/ts/te -Occf -Wtaper -Acczero
+  correlatec -Ttmark/ts/te [-Occf] [-Wtaper] [-Acczero]
              [-h] sacfile1 sacfile2
 
 Options:
-  -T: tmark/begin time (sec)/time window (sec)
+  -T: tmark/begin time (sec)/end time (sec)
   -O: cross-correlation function file
-  -W: taper (0: NO; 1: hanning; 2: cos)
-  -A: output cross-correlation at zero lag time
+  -W: taper (0: NO (default); 1: hanning; 2: cos)
+  -A: only output cross-correlation at zero lag time (0: YES; 1: NO (default))
   -h: show usage
+
+Examples:
+  correlatec -T1/-3/4 seis1.sac seis2.sac
+  correlatec -T1/-3/4 -A0 seis1.sac seis2.sac
+  correlatec -T1/-3/4 -W1 seis1.sac seis2.sac
+  correlatec -T1/-3/4 -Occf12.sac seis1.sac seis2.sac
 ```
 
 

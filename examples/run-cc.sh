@@ -54,47 +54,78 @@ EOF
 
 
 
-# time-domain and frequency cross-corrleation
-echo
-echo cc_time: time-domain cross-correlation at zero lag time
+# do time-domain and frequency cross-corrleation
+## cross-correlation at zero lag time
+### data without rmean;rtrend;taper
+echo "----------------------------------"
+echo "cross-correlation at zero lag time";
+echo "----------------------------------"
+echo "data without rmean;rtrend;taper:"
+echo "1. cc_time: time-domain cross-correlation at zero lag time (f1 f2 ccf)"
 ../bin/cc_time -T1/-3/4 seis.sac seis-shift0.2345.sac
-echo cc_freq: frequency-domain cross-correlation at zero lag time
-../bin/cc_freq -T1/-3/4 -W1 -A0 seis.sac seis-shift0.2345.sac
-echo correlatec: frequency-domain cross-correlation at zero lag time
-../bin/correlatec -T1/-3/4 -W1 -A0 seis.sac seis-shift0.2345.sac
-echo SAC-correlate: frequency-domain cross-correlation at zero lag time
+echo
+echo "2. cc_freq: frequency-domain cross-correlation at zero lag time (f1 f2 ccf)"
+../bin/cc_freq -T1/-3/4 -A0 seis.sac seis-shift0.2345.sac
+echo
+echo "3. correlatec: frequency-domain cross-correlation at zero lag time (f1 f2 ccf)"
+../bin/correlatec -T1/-3/4 -A0 seis.sac seis-shift0.2345.sac
+echo
+echo "4. SAC-correlate: frequency-domain cross-correlation at zero lag time (cross-correlation-function ccf)"
 /home/tomoboy/src.import/SACTools/bin/sacamp -T0 SAC-ccf.sac
 
+### data with rmean;rtrend;taper
 echo
-echo cc_time: time-domain cross-correlation at zero lag time
+echo "data with rmean;rtrend;taper:"
+echo "1. cc_time: time-domain cross-correlation at zero lag time (f1 f2 ccf)"
 ../bin/cc_time -T1/-3/4 seis-rrt.sac seis-shift0.2345-rrt.sac
-echo cc_freq: frequency-domain cross-correlation at zero lag time
-../bin/cc_freq -T1/-3/4 -W1 -A0 seis-rrt.sac seis-shift0.2345-rrt.sac
-echo correlatec: frequency-domain cross-correlation at zero lag time
-../bin/correlatec -T1/-3/4 -W1 -A0 seis-rrt.sac seis-shift0.2345-rrt.sac
-echo SAC-correlate: frequency-domain cross-correlation at zero lag time
+echo
+echo "2. cc_freq: frequency-domain cross-correlation at zero lag time (f1 f2 ccf)"
+../bin/cc_freq -T1/-3/4 -A0 seis-rrt.sac seis-shift0.2345-rrt.sac
+echo
+echo "3. correlatec: frequency-domain cross-correlation at zero lag time (f1 f2 ccf)"
+../bin/correlatec -T1/-3/4 -A0 seis-rrt.sac seis-shift0.2345-rrt.sac
+echo
+echo "4. SAC-correlate: frequency-domain cross-correlation at zero lag time (cross-correlation-function ccf)"
 /home/tomoboy/src.import/SACTools/bin/sacamp -T0 SAC-ccf-rrt.sac
 
-echo ----------------------------------
 
+## cross-correlation for all the lag times
+### data without rmean;rtrend;taper
 echo
-echo cc_freq: frequency-domain cross-correlation
-../bin/cc_freq -T1/-3/4 -W1 -Occ_freq-ccf.sac  seis.sac seis-shift0.2345.sac
-echo correlatec: frequency-domain cross-correlation
-../bin/correlatec -T1/-3/4 -W1 -A1 -Ocorrelatec-ccf.sac seis.sac seis-shift0.2345.sac
-echo SAC-correlate: frequency-domain cross-correlation at -0.23 lag time
+echo
+echo "-----------------------------------"
+echo "cross-correlation all the lag times";
+echo "-----------------------------------"
+echo "data without rmean;rtrend;taper:"
+echo "1. cc_freq: frequency-domain cross-correlation (f1 f2 ccf dt)"
+../bin/cc_freq -T1/-3/4 seis.sac seis-shift0.2345.sac
+echo
+echo "2. correlatec: frequency-domain cross-correlation (f1 f2 ccf dt)"
+../bin/correlatec -T1/-3/4 seis.sac seis-shift0.2345.sac
+echo
+echo "3. SAC-correlate: frequency-domain cross-correlation at -0.23 lag time (cross-correlation-function ccf)"
 /home/tomoboy/src.import/SACTools/bin/sacamp -T-0.23 SAC-ccf.sac
-echo Lupei-sac_wfcc
+echo
+echo "4. Lupei Zhu's sac_wfcc"
+echo "   f1  tmark     ccf"
+echo "   f2  tmark+dt  ccf"
 saclst t1 f seis.sac seis-shift0.2345.sac | ../bin/sac_wfcc -D-3/4/4
 
+### data with rmean;rtrend;taper
 echo
-echo cc_freq: frequency-domain cross-correlation
-../bin/cc_freq -T1/-3/4 -W1 -Occ_freq-ccf-rrt.sac seis-rrt.sac seis-shift0.2345-rrt.sac
-echo correlatec: frequency-domain cross-correlation
-../bin/correlatec -T1/-3/4 -W1 -A1 -Ocorrelatec-ccf.sac seis-rrt.sac seis-shift0.2345-rrt.sac
-echo SAC-correlate: frequency-domain cross-correlation at -0.23 lag time
+echo "data with rmean;rtrend;taper"
+echo "1. cc_freq: frequency-domain cross-correlation (f1 f2 ccf dt)"
+../bin/cc_freq -T1/-3/4 seis-rrt.sac seis-shift0.2345-rrt.sac
+echo
+echo "2. correlatec: frequency-domain cross-correlation (f1 f2 ccf dt)"
+../bin/correlatec -T1/-3/4 seis-rrt.sac seis-shift0.2345-rrt.sac
+echo
+echo "3. SAC-correlate: frequency-domain cross-correlation at -0.23 lag time (cross-correlation-function ccf)"
 /home/tomoboy/src.import/SACTools/bin/sacamp -T-0.23 SAC-ccf-rrt.sac
-echo Lupei-sac_wfcc
+echo
+echo "4. Lupei Zhu's sac_wfcc"
+echo "   f1  tmark     ccf"
+echo "   f2  tmark+dt  ccf"
 saclst t1 f seis-rrt.sac seis-shift0.2345-rrt.sac | ../bin/sac_wfcc -D-3/4/4
 
 

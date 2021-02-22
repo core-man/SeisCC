@@ -10,8 +10,8 @@ Frequncy domain correlation
 
 - [cc_freq](src/cc_freq.c): Do cross-correlation using [FFTW](http://www.fftw.org/)
 - [correlatec](src/correlatec.c): Call the `crscor` function in SAC's [libsac](http://ds.iris.edu/files/sac-manual/manual/saclib.html) to do the cross-correlation. Please refer to [Chinese SAC Documentation](https://seisman.github.io/SAC_Docs_zh/libs/libsac/#crscor) for more details.
-- [sac_wfcc](sac_wfcc/): This is [Lupei Zhu](http://www.eas.slu.edu/People/LZhu/home.html)'s code downloaded from [Introduction to SAC](http://geophysics.eas.gatech.edu/people/zpeng/Teaching/SAC_Tutorial/#part3_1)
-- PCC2: This is [Martin Schimmel](http://diapiro.ictja.csic.es/gt/mschi/)'s code downloaded from [here](http://diapiro.ictja.csic.es/gt/mschi/SCIENCE/pcc2_method.py)
+- [sac_wfcc](sac_wfcc/): This is [Lupei Zhu](http://www.eas.slu.edu/People/LZhu/home.html)'s code downloaded from [Introduction to SAC](http://geophysics.eas.gatech.edu/people/zpeng/Teaching/SAC_Tutorial/#part3_1) on 2020 Aug. 18.
+- [PCC2](pcc/pcc2_method.py): This is [Martin Schimmel](http://diapiro.ictja.csic.es/gt/mschi/)'s code downloaded from [here](http://diapiro.ictja.csic.es/gt/mschi/SCIENCE/tseries.html#software) on 2021 Feb. 22.
 - ObsPy: [corss_correlation](https://docs.obspy.org/packages/autogen/obspy.signal.cross_correlation.html#module-obspy.signal.cross_correlation)
 - SAC: [correlate](examples/SAC-correlate.sh)
 

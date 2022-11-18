@@ -16,7 +16,7 @@ cc_freq: cc_freq.o sacio.o taper.o
 	$(CC) ${CFLAGS} -o $(BIN)/$@ $^ ${LIB}
 
 correlatec: correlatec.o sacio.o taper.o
-	$(CC) ${CFLAGS} -o $(BIN)/$@ $^ -lm -L/opt/SAC/lib -lsac -lsacio
+	$(CC) ${CFLAGS} -o $(BIN)/$@ $^ -lm -L/home/coreman/opt/sac-102/lib -lsac -lsacio
 
 clean:
 	rm *.o
